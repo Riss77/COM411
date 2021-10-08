@@ -30,6 +30,5 @@ if third_number % 2 != 1:
 else:
     odds += 1
 
-
-print(evens)
-print(odds)
+print(f"There were {evens} even and {odds} odds numbers")
+2
