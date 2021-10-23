@@ -1,11 +1,11 @@
 
-number = int(input("Please enter a number:"))
+user_number = int(input("Please enter a number:"))
 
-count = 0
-sum_numbers = 0
+iteration = 0
+fact_number = 1
 
-while count < number:
-    sum_numbers * (count * number)
-    count += 1
+while user_number > 0:
+    fact_number = fact_number * user_number
+    user_number -= 1
 
-print(f"The factorial is {sum_numbers}")
+print(f"The factorial is {fact_number}")
