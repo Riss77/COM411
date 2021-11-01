@@ -17,7 +17,7 @@ def mirrored(word):
     mirrored = ""
     for letter in reversed(word):
         mirrored += letter
-    print(f"{word}| {mirrored}")
+    print(f"{word} | {mirrored}")
 
 
 def repeat(word):
@@ -55,6 +55,7 @@ def run():
         repeat(word)
     else:
         print("You have chosen to end the program.")
+
 
 run()
 
