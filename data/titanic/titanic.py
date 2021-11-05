@@ -32,6 +32,8 @@ def run():
         display_passengers_per_age_group()
     elif selected_option == 5:
         display_survivors_by_age_group()
+    elif selected_option == 6:
+        name_search()
     else:
         print("Error! Option not recognised!")
 
@@ -45,6 +47,7 @@ def display_menu():
         [3] Display the number of passengers per gender
         [4] Display the number of passengers per age group
         [5] Display the number of survivors per age group
+        [6] Name search
       
         """)
 
@@ -57,6 +60,14 @@ def display_passenger_names():
     for record in records:
         passenger_name = record[3]
         print(passenger_name)
+
+
+def name_search():
+    search_name = input("Please enter a name to search for:")
+    for record in records:
+        passenger_name = record[3]
+        if passenger_name == search_name:
+            print(passenger_name)
 
 
 def display_num_survivors():
