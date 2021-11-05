@@ -66,7 +66,7 @@ def name_search():
     search_name = input("Please enter a name to search for:")
     for record in records:
         passenger_name = record[3]
-        if passenger_name == search_name:
+        if search_name in passenger_name:
             print(passenger_name)
 
 
