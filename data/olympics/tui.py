@@ -1,6 +1,6 @@
 def started(msg=""):
     print("-"*85)
-    print(f"Operation started: Reading data from {msg}\n...")
+    print(f"Operation started: {msg}\n...")
 
 
 def completed():
@@ -26,7 +26,7 @@ def menu():
 
 
 def display_medal_tally(tally):
-    print(f"| {'Gold':10}       | {tally['Gold']:10}      |")
+    print(f"| Gold       | {tally['Gold']}      |")
     print(f"| Silver     | {tally['Silver']}     |")
     print(f"| Bronze     | {tally['Bronze']}      |")
 
