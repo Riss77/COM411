@@ -8,7 +8,7 @@ def completed():
     print("-"*85)
 
 
-def err(msg):
+def error(msg):
     print(f"Error! {msg}")
 
 
@@ -32,9 +32,9 @@ def display_medal_tally(tally):
 
 
 def display_team_medal_tally(team_tally):
-    for key, value in team_tally.items():
-        print(f"{key}")
-        print(f"Gold: {value['Gold']}, Silver: {value['Silver']}, Bronze: {value['Bronze']}")
+    for team, tally in team_tally.items():
+        print(f"{team}")
+        print(f"Gold: {tally['Gold']}, Silver: {tally['Silver']}, Bronze: {tally['Bronze']}")
 
 
 def display_years(years):
