@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import random as rnd
 
 
 def data():
@@ -23,12 +24,12 @@ def generate():
 
     for num_line in range(num_lines):
         values = data()
-        x = []
-        y = []
+        x = rnd.sample(range(1, 10), 5)
+        y = rnd.sample(range(1, 10), 5)
+        format2 = f"{values['colour']}{values['type_line']}{values['marker']}"
+        plt.plot(x, y, format2)
 
-        plt.plot(x, y)
-
-        plt.show()
+    plt.show()
 
 
 def run():
