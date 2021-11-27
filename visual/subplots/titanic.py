@@ -29,43 +29,59 @@ def read_data():
 
 
 def plot_survivor_age_bar(axs, data):
-    children = 0
-    adults = 0
-    elderly = 0
+    children = {'survived': [], 'deceased': []}
+    adults = {'survived': [], 'deceased': []}
+    elderly = {'survived': [], 'deceased': []}
 
-    for value in data['age']:
-        if data['survived'] == 'True':
-            age = int(data['age'][value])
-            if age < 18:
-                children += 1
-            elif age < 65:
-                adults += 1
-            else:
-                elderly += 1
-    x = ['Children', 'Adults', 'Elderly']
-    y = [children, adults, elderly]
+    for index in range(len(data['age'])):
+        age = data['age'][index]
+        if age < 18 and data['survived'][index]:
+            children['survived'].append(age)
+        elif age < 18 and not data['survived'][index]:
+            children['deceased'].append(age)
+        elif age < 65 and data['survived'][index]:
+            adults['survived'].append(age)
+        elif age < 65 and not data['survived'][index]:
+            adults['deceased'].append(age)
+        elif data['survived'][index]:
+            elderly['survived'].append(age)
+        else:
+            elderly['deceased'].append(age)
 
-    plt.xlabel("Age Group")
-    plt.ylabel("Total Survivors")
-    plt.bar(x, y)
+    labels = ['Children', 'Adults', 'Elderly']
+    survivors = [len(children['survived']), len(adults['survived']), len(elderly['survived'])]
+    deceased = [len(children['deceased']), len(adults['deceased']), len(elderly['deceased'])]
+
+    axs.bar(labels, survivors, label='Survived')
+    axs.bar(labels, deceased, bottom=survivors, label='Deceased')
+    axs.set_ylabel('Age')
+    axs.legend()
+    axs.set_title('Age vs Survival')
 
 
 def plot_age_vs_fare_scatter(axs, data):
-    for value in data:
-        fare = data['fare']
-        age = data['age']
+    #age = data['age']
+    #fare = data['fare']
 
-    plt.xlabel("Age")
-    plt.ylabel("Fare")
-
-    plt.scatter(age, fare)
+    #axs.scatter(age, fare, 'o')
+    #axs.set_ylabel('Fare')
+    #axs.set_xlabel('Age')
+    #axs.legend()
+    #axs.set_title('Fare vs Age')
+    pass
 
 
 def plot_survived_vs_sex_bar(axs, data):
+    male = {'survived': [], 'deceased': []}
+    female = {'survived': [], 'deceased': []}
+
     pass
 
 
 def plot_fare_vs_survived(axs, data):
+    survived = []
+    deceased = []
+
     pass
 
 
